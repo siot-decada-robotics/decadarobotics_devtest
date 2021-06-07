@@ -9,4 +9,7 @@
 		<arg name="model" value="$(arg model)"/>
 		<arg name="robot_name" value="caato_0"/>
 	</include>
+
+	<include file="$(find decadarobotics_devtest)/launch/include/rqt.launch"/>
+
 </launch>

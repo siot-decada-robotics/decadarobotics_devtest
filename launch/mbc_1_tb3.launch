@@ -1,0 +1,19 @@
+<launch>
+	<arg name="model" default="burger"/>
+
+	<!-- Spawn Map -->
+	<include file="$(find adhoc_simulations)/launch/sim_base_mbc.launch"/>
+	
+	<include file="$(find adhoc_simulations)/launch/sim_bot_tb3.launch">
+		<arg name="model" value="$(arg model)"/>
+		<arg name="robot_name" value="tb3_0"/>
+
+		<arg name="bot_x_pos" default="22.0"/>
+		<arg name="bot_y_pos" default="-22.0"/>
+		<arg name="bot_z_pos" default="1.0"/>
+		<arg name="bot_a_pos" default="3"/>
+	</include>
+
+	<include file="$(find decadarobotics_devtest)/launch/include/rqt.launch"/>
+
+</launch>

@@ -13,7 +13,6 @@
 		<arg name="bot_y_pos" default="-17.0"/>
 		<arg name="bot_z_pos" default="1.0"/>
 		<arg name="bot_a_pos" default="1.57"/>
-
 	</include>
 
 	<include file="$(find adhoc_simulations)/launch/sim_bot_caato.launch">
@@ -24,7 +23,8 @@
 		<arg name="bot_y_pos" default="-22.0"/>
 		<arg name="bot_z_pos" default="1.0"/>
 		<arg name="bot_a_pos" default="3"/>
-
 	</include>
+
+	<include file="$(find decadarobotics_devtest)/launch/include/rqt.launch"/>
 
 </launch>
