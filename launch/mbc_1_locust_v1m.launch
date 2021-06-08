@@ -1,0 +1,15 @@
+<launch>
+	<arg name="model" default="v1m"/>
+
+	<!-- Spawn Map -->
+	<include file="$(find adhoc_simulations)/launch/sim_base_mbc.launch"/>
+	
+	<!-- Spawn Bot -->
+	<include file="$(find adhoc_simulations)/launch/sim_bot_locust.launch">
+		<arg name="model" value="$(arg model)"/>
+		<arg name="robot_name" value="locust_0"/>
+	</include>
+
+	<include file="$(find decadarobotics_devtest)/launch/include/rqt.launch"/>
+
+</launch>
