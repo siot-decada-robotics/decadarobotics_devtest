@@ -1,0 +1,24 @@
+<launch>
+  <arg name="robot_name" default="fake_robot"/>
+	<arg name="fleet_name" default="fake_fleet"/>
+	<arg name="dds_domain" default="42" />
+
+  <group ns = "$(arg robot_name)">
+		<node name="fake_action_server" pkg="free_fleet_client_ros1" 
+			type="fake_action_server"/>
+
+		<node name="fake_docking_server" pkg="free_fleet_client_ros1" 
+			type="fake_docking_server"/>
+
+		<node name="fake_client_node" pkg="free_fleet_client_ros1"
+			type="free_fleet_client_ros1" output="screen">
+			<param name="fleet_name" type="string" value="$(arg fleet_name)"/>
+			<param name="robot_name" type="string" value="$(arg robot_name)"/>
+
+			<param name="dds_domain" type="int" value="$(arg dds_domain)"/>
+			<param name="max_dist_to_first_waypoint" type="double" value="10.0"/>
+			<param name="docking_trigger_server_name" type="string" value="/$(arg robot_name)/fake_docking_server"/>
+		</node>
+	</group>
+
+</launch>

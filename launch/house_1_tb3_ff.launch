@@ -1,0 +1,21 @@
+<launch>
+	<arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+	<arg name="robot_name" value="tb3_0"/>
+	<arg name="fleet_name" default="tbf"/>
+
+	<!-- Spawn Map -->
+	<include file="$(find adhoc_simulations)/launch/sim_base_tb3_house.launch"/>
+	
+	<!-- Spawn Bot -->
+	<include file="$(find adhoc_simulations)/launch/sim_bot_tb3.launch">
+		<arg name="model" value="$(arg model)"/>
+		<arg name="robot_name" value="$(arg robot_name)"/>
+	</include>
+
+	<!-- Spawn Bot's FF -->
+	<include file="$(find decadarobotics_demos)/launch/include/adhoc_freefleet.launch">
+		<arg name="robot_name" value="$(arg robot_name)"/>
+		<arg name="fleet_name" value="$(arg fleet_name)"/>
+	</include>
+
+</launch>
